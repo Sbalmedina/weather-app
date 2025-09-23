@@ -1,0 +1,100 @@
+# Design files (please do not remove 🙂)
+*.sketch
+*.fig
+*.xd
+
+# Dependencies
+/node_modules
+/.pnp
+.pnp.js
+yarn.debug.log*
+yarn.error.log*
+npm-debug.log*
+
+# Environment and secrets
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Testing
+/coverage
+
+# Production
+/build
+/dist
+/.next
+/out
+
+# IDEs and editors
+/.idea
+/.vscode
+*.swp
+*.swo
+
+# Misc
+*.log
+*.pem
+.DS_Store
+Thumbs.db
+
+## Ignore Visual Studio temporary files, build results, and personal settings
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+# Visual Studio cache/options
+.vs/
+.vscode/
+
+# Windows system files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+AppData/
+Cookies/
+NTUSER.DAT
+*.tmp
+*.bak
+
+# NuGet
+*.nupkg
+*.snupkg
+packages/
+*.nuget.props
+*.nuget.targets
+
+# Rider
+.idea/
+
+# DotCover
+.idea.DotSettings.user
+
+# Others
+*.dbmdl
+*.bak
+*.log
+*.pdb
+*.cache
+*.diff
+*.patch
+*.orig
