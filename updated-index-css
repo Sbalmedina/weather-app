@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <title>Frontend Mentor | Weather app</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="/style.css" />
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+      }
+      .attribution a {
+        color: hsl(228, 33%, 24%);
+      }
+    </style>
+  </head>
+
+  <!-- Units Switch to Imperial/Metric Temperature Celsius (°C) Fahrenheit (°F)
+    Wind Speed km/h mph Precipitation Millimeters (mm) Inches (in) How's the sky
+    looking today? Search for a city, e.g., New York Search Feels like. -->
+  <body>
+    <a href="#main" class="visually-hidden skip-link">Skip to main content</a>
+
+    <header class="header wrapper">
+      <div class="header_content">
+        <a class="header_homelink" href="/">
+          <img
+            class="header_logo"
+            src="/assets/images/logo.svg"
+            alt="Weather Now Home"
+            width="197"
+            height="40"
+          />
+        </a>
+
+        <select class="header_dropdown" name="units" id="units">
+          <option value="">Units</option>
+          <option value="metric">°C, km/h, mm</option>
+          <option value="imperial">°F, mph, in</option>
+        </select>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero wrapper">
+        <div class="hero_content">
+          <h1 class="hero_title">How's the sky looking today?</h1>
+          <div class="hero_search">
+            <input class="hero_textbox" type="text" name="search" id="search" />
+            <button class="hero_button" type="submit">Search</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="current">
+        <h2 class="visually-hidden">Current Location Temperature</h2>
+        <div class="currrent_weather">
+          <div class="current_location">
+            <div class="current_city">Berlin, Germany</div>
+            <div class="current_date">Thursday, 23rd October 2025</div>
+          </div>
+          <div class="current_icon">
+            <img
+              src="/assets/images/icon-sunny.webp"
+              alt=""
+              width="320"
+              height="320"
+            />
+          </div>
+          <div class="current_temp"><span>20</span>&deg;</div>
+        </div>
+        <div class="current_conditions">
+          <div class="current_condition">
+            <p class="current_condition-title">Feels Like</p>
+            <p id="feelslike" class="current_condition-value">18&deg;</p>
+          </div>
+          <div class="current_condition">
+            <p class="current_condition-title">Humidity</p>
+            <p id="humidity" class="current_condition-value">46 %</p>
+          </div>
+          <div class="current_condition">
+            <p class="current_condition-title">Wind Speed</p>
+            <p id="wind" class="current_condition-value">14 km/h</p>
+          </div>
+          <div class="current_condition">
+            <p class="current_condition-title">Precipitation</p>
+            <p id="precipitation" class="current_condition-value">0 mm</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="daily">
+        <div class="daily_forecast"></div>
+        <div class="daily_day">
+          <p class="daily-title">Mon</p>
+          <img
+            src="/assets/images/icon-rain.webp"
+            alt=""
+            width="320"
+            height="320"
+          />
+          <div class="daily_day-temps">
+            <p class="daily_day-high">20&deg;</p>
+            <p class="daily_day-low">14&deg;</p>
+          </div>
+        </div>
+        <div class="daily_day">
+          <p class="daily-title">Tue</p>
+          <img
+            src="/assets/images/icon-rain.webp"
+            alt=""
+            width="320"
+            height="320"
+          />
+          <div class="daily_day-temps">
+            <p class="daily_day-high">20&deg;</p>
+            <p class="daily_day-low">14&deg;</p>
+          </div>
+        </div>
+        <div class="daily_day">
+          <p class="daily-title">Wed</p>
+          <img
+            src="/assets/images/icon-rain.webp"
+            alt=""
+            width="320"
+            height="320"
+          />
+          <div class="daily_day-temps">
+            <p class="daily_day-high">20&deg;</p>
+            <p class="daily_day-low">14&deg;</p>
+          </div>
+        </div>
+        <div class="daily_day">
+          <p class="daily-title">Thur</p>
+          <img
+            src="/assets/images/icon-rain.webp"
+            alt=""
+            width="320"
+            height="320"
+          />
+          <div class="daily_day-temps">
+            <p class="daily_day-high">20&deg;</p>
+            <p class="daily_day-low">14&deg;</p>
+          </div>
+        </div>
+        <div class="daily_day">
+          <p class="daily-title">Fri</p>
+          <img
+            src="/assets/images/icon-rain.webp"
+            alt=""
+            width="320"
+            height="320"
+          />
+          <div class="daily_day-temps">
+            <p class="daily_day-high">20&deg;</p>
+            <p class="daily_day-low">14&deg;</p>
+          </div>
+        </div>
+        <div class="daily_day">
+          <p class="daily-title">Sat</p>
+          <img
+            src="/assets/images/icon-rain.webp"
+            alt=""
+            width="320"
+            height="320"
+          />
+          <div class="daily_day-temps">
+            <p class="daily_day-high">20&deg;</p>
+            <p class="daily_day-low">14&deg;</p>
+          </div>
+        </div>
+        <div class="daily_day">
+          <p class="daily-title">Sun</p>
+          <img
+            src="/assets/images/icon-rain.webp"
+            alt=""
+            width="320"
+            height="320"
+          />
+          <div class="daily_day-temps">
+            <p class="daily_day-high">20&deg;</p>
+            <p class="daily_day-low">14&deg;</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="hourly">
+        <div class="hourly_header">
+          <h2 class="section_title hourly_title">Hourly Forecast</h2>
+          <select name="hourly-day" id="hourly-day">
+            <option value="">Tuesday</option>
+          </select>
+        </div>
+
+        <div class="hourly_hours">
+          <div class="hourly_hour">
+            <img
+              class="hourly_hour-icon"
+              src="/assets/images/icon-sunny.webp"
+              width="40"
+              height="40"
+              alt=""
+            />
+            <p class="hourly_hour-time">1 PM</p>
+            <p class="hourly_hour-temp">20&deg;</p>
+          </div>
+          <div class="hourly_hour">
+            <img
+              class="hourly_hour-icon"
+              src="/assets/images/icon-sunny.webp"
+              width="40"
+              height="40"
+              alt=""
+            />
+            <p class="hourly_hour-time">2 PM</p>
+            <p class="hourly_hour-temp">20&deg;</p>
+          </div>
+          <div class="hourly_hour">
+            <img
+              class="hourly_hour-icon"
+              src="/assets/images/icon-sunny.webp"
+              width="40"
+              height="40"
+              alt=""
+            />
+            <p class="hourly_hour-time">3 PM</p>
+            <p class="hourly_hour-temp">20&deg;</p>
+          </div>
+          <div class="hourly_hour">
+            <img
+              class="hourly_hour-icon"
+              src="/assets/images/icon-sunny.webp"
+              width="40"
+              height="40"
+              alt=""
+            />
+            <p class="hourly_hour-time">4 PM</p>
+            <p class="hourly_hour-temp">20&deg;</p>
+          </div>
+          <div class="hourly_hour">
+            <img
+              class="hourly_hour-icon"
+              src="/assets/images/icon-sunny.webp"
+              width="40"
+              height="40"
+              alt=""
+            />
+            <p class="hourly_hour-time">5 PM</p>
+            <p class="hourly_hour-temp">20&deg;</p>
+          </div>
+          <div class="hourly_hour">
+            <img
+              class="hourly_hour-icon"
+              src="/assets/images/icon-sunny.webp"
+              width="40"
+              height="40"
+              alt=""
+            />
+            <p class="hourly_hour-time">6 PM</p>
+            <p class="hourly_hour-temp">20&deg;</p>
+          </div>
+          <div class="hourly_hour">
+            <img
+              class="hourly_hour-icon"
+              src="/assets/images/icon-sunny.webp"
+              width="40"
+              height="40"
+              alt=""
+            />
+            <p class="hourly_hour-time">7 PM</p>
+            <p class="hourly_hour-temp">20&deg;</p>
+          </div>
+          <div class="hourly_hour">
+            <img
+              class="hourly_hour-icon"
+              src="/assets/images/icon-sunny.webp"
+              width="40"
+              height="40"
+              alt=""
+            />
+            <p class="hourly_hour-time">8 PM</p>
+            <p class="hourly_hour-temp">20&deg;</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
+      Coded by <a href="#">Your Name Here</a>.
+    </div>
+  </body>
+</html>
+
+@layer global {
+  /* FONTS */
+  /* dm-sans-300 - latin */
+  @font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: "DM Sans";
+    font-style: normal;
+    font-weight: 300;
+    src: url("/assets/fonts/dm-sans-v17-latin-300.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  }
+  /* dm-sans-regular - latin */
+  @font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: "DM Sans";
+    font-style: normal;
+    font-weight: 400;
+    src: url("/assets/fonts/dm-sans-v17-latin-regular.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  }
+  /* dm-sans-500 - latin */
+  @font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: "DM Sans";
+    font-style: normal;
+    font-weight: 500;
+    src: url("/assets/fonts/dm-sans-v17-latin-500.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  }
+  /* dm-sans-600 - latin */
+  @font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: "DM Sans";
+    font-style: normal;
+    font-weight: 600;
+    src: url("/assets/fonts/dm-sans-v17-latin-600.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  }
+  /* dm-sans-600italic - latin */
+  @font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: "DM Sans";
+    font-style: italic;
+    font-weight: 600;
+    src: url("/assets/fonts/dm-sans-v17-latin-600italic.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  }
+  /* dm-sans-700 - latin */
+  @font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: "DM Sans";
+    font-style: normal;
+    font-weight: 700;
+    src: url("/assets/fonts/dm-sans-v17-latin-700.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  }
+
+  /* bricolage-grotesque-regular - latin */
+  @font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: "Bricolage Grotesque";
+    font-style: normal;
+    font-weight: 400;
+    src: url("/assets/fonts/bricolage-grotesque-v9-latin-regular.woff2")
+      format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  }
+  /* bricolage-grotesque-700 - latin */
+  @font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: "Bricolage Grotesque";
+    font-style: normal;
+    font-weight: 700;
+    src: url("/assets/fonts/bricolage-grotesque-v9-latin-700.woff2")
+      format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  }
+
+  /* COLORS */
+
+  :root {
+    --c-neutral-900: hsl(243, 96%, 9%);
+    --c-neutral-800: hsl(243, 27%, 20%);
+    --c-neutral-700: hsl(243, 23%, 24%);
+    --c-neutral-600: hsl(243, 23%, 30%);
+    --c-neutral-300: hsl(240, 6%, 70%);
+    --c-neutral-200: hsl(250, 6%, 84%);
+    --c-neutral-0: hsl(0, 0%, 100%);
+    --c-orange-500: hsl(28, 100%, 52%);
+    --c-blue-500: hsl(233, 67%, 56%);
+    --c-blue-700: hsl(248, 70%, 36%);
+
+    --color-main-bg: var(--c-neutral-900);
+    --color-text-light: var(--c-neutral-0);
+    --color-text-med-light: var(--c-neutral-200);
+
+    --color-panel-bg-dark: var(--c-neutral-800);
+    --color-panel-bg-dark-hover: var(--c-neutral-700);
+
+    --color-panel-bg-med: var(--c-neutral-700);
+    --color-panel-bg-light: var(--c-neutral-600);
+    --color-panel-border: var(--c-neutral-600);
+
+    --color-button: var(--c-blue-500);
+    --color-button-hover: var(--c-blue-700);
+
+    /* FONT SIZES */
+    --fs-96: calc(96 / 16 * 1rem);
+    --fs-52: calc(52 / 16 * 1rem);
+    --fs-32: calc(32 / 16 * 1rem);
+    --fs-28: calc(28 / 16 * 1rem);
+    --fs-20: calc(20 / 16 * 1rem);
+    --fs-18: calc(18 / 16 * 1rem);
+    --fs-16: calc(16 / 16 * 1rem);
+    --fs-14: calc(14 / 16 * 1rem);
+
+    --font-size-h1: var(--fs-52);
+    --font-size-dropdown: var(--fs-14);
+    --font-size-search: var(--fs-20);
+    --font-size-city: var(--fs-28);
+    --font-size-date: var(--fs-18);
+    --font-size-temp: var(--fs-96);
+    --font-size-panel-title: var(--fs-18);
+    --font-size-panel-value: var(--fs-32);
+    --font-size-forecast-title: var(--fs-20);
+    --font-size-forecast-day: var(--fs-18);
+    --font-size-forecast-temp: var(--fs-16);
+    --font-size-forecast-dropdown: var(--fs-16);
+    --font-size-forecast-hour: var(--fs-20);
+
+    @media (width >= calc(700 /16 * 1rem)) {
+      --font-size-dropdown: var(--fs-16);
+    }
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  * {
+    margin: 0;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  body {
+    font-family: "DM Sans", Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    background-color: var(--color-main-bg);
+    color: var(--color-text-light);
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: "Bricolage Grotesque", Arial, Helvetica, sans-serif;
+  }
+
+  input,
+  button,
+  textarea {
+    font: inherit;
+  }
+
+  .wrapper {
+    display: grid;
+    grid-template-columns: 1fr calc(100% - 32px) 1fr;
+
+    @media (width >= calc(700 / 16 * 1rem)) {
+      grid-template-columns: 1fr min(calc(100% - 48px), calc(1216 / 16 * 1rem)) 1fr;
+    }
+
+    > * {
+      grid-column: 2;
+    }
+  }
+
+  .visually-hidden {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+
+  &.skip-link:focus {
+    left: 0;
+    width: auto;
+    height: auto;
+    background-color: var(--color-main-bg);
+    color: var(--color-text-light);
+    padding: 10px;
+    border: 2px solid var(--color-text-light);
+  }
+}
+
+@layer component {
+  .header {
+    .header_content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-block-start: 16px;
+    }
+
+    .header_homelink {
+    }
+    .header_logo {
+      width: calc(137 / 16 * 1rem);
+
+      @media (width >= calc(700 /16 * 1rem)) {
+        width: calc(197 / 16 * 1rem);
+      }
+    }
+    .header_dropdown {
+      width: calc(90 / 16 * 1rem);
+    }
+  }
+
+  .hero {
+    .hero_content {
+      display: grid;
+      justify-self: center;
+      padding-block-start: 48px;
+    }
+
+    .hero_title {
+      font-size: var(--font-size-h1);
+      margin-block-end: 48px;
+      text-align: center;
+      line-height: 1.2;
+
+      @media (width >=calc(700 / 16 * 1rem)) {
+        max-width: 15ch;
+      }
+    }
+    .hero_search {
+      display: grid;
+      justify-content: center;
+      gap: 12px 16px;
+
+      /* https://www.youtube.com/watch?v=jBE_Oj2FK4E&list=PPSV  @ 1:48:49 */
+    }
+  }
+}
